@@ -1,0 +1,105 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-build-a-welcome-home-screen-that-displays-the-apni-dukaan-logo-from-frontend-public-assets-generated-apni-dukaan-logo-png-prominently-the-tagline-har-dukan-online-and-two-large-call-to-action-buttons-find-a-shop-customer-flow-and-register-your-shop-seller-flow-the-screen-must-be-mobile-first-and-full-viewport",
+      "featureTitle": "Build a Welcome / Home screen that displays the APNI DUKAAN logo (from frontend/public/assets/generated/apni-dukaan-logo.png) prominently, the tagline 'Har Dukan Online', and two large call-to-action buttons: 'Find a Shop' (customer flow) and 'Register Your Shop' (seller flow). The screen must be mobile-first and full-viewport.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/WelcomePage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-shop-listings-page-for-the-customer-flow-it-must-fetch-all-shops-from-the-backend-and-display-them-as-cards-showing-shop-name-category-city-and-phone-number-include-a-search-bar-to-filter-by-shop-name-or-city-and-a-category-filter-dropdown-each-card-must-be-tappable-and-navigate-to-the-shop-detail-page",
+      "featureTitle": "Build a Shop Listings page for the customer flow. It must fetch all shops from the backend and display them as cards showing shop name, category, city, and phone number. Include a search bar to filter by shop name or city, and a category filter dropdown. Each card must be tappable and navigate to the shop detail page.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/ShopCard.tsx",
+        "frontend/src/pages/ShopListingsPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-shop-detail-page-that-displays-the-full-profile-of-a-single-shop-shop-name-owner-name-category-description-address-city-phone-number-tappable-tel-link-whatsapp-number-tappable-wa-me-link-opening-hours-and-shop-image-include-a-back-button-to-return-to-the-listings-page",
+      "featureTitle": "Build a Shop Detail page that displays the full profile of a single shop: shop name, owner name, category, description, address, city, phone number (tappable tel: link), WhatsApp number (tappable wa.me link), opening hours, and shop image. Include a back button to return to the listings page.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/ShopDetailPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-multi-step-seller-registration-form-minimum-3-steps-for-shop-owners-to-create-their-digital-shop-profile-step-1-basic-info-owner-name-shop-name-category-selection-step-2-location-contact-address-city-phone-number-whatsapp-number-opening-hours-step-3-description-review-shop-description-review-all-entered-details-on-final-submission-call-the-backend-registershop-function-and-show-a-success-confirmation-screen-with-the-generated-shop-id",
+      "featureTitle": "Build a multi-step Seller Registration form (minimum 3 steps) for shop owners to create their digital shop profile. Step 1: Basic Info (owner name, shop name, category selection). Step 2: Location & Contact (address, city, phone number, WhatsApp number, opening hours). Step 3: Description & Review (shop description, review all entered details). On final submission, call the backend registerShop() function and show a success confirmation screen with the generated shop ID.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/hooks/useMultiStepForm.ts",
+        "frontend/src/pages/RegistrationSuccessPage.tsx",
+        "frontend/src/pages/SellerRegistrationPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-consistent-visual-theme-across-the-entire-app-derived-from-the-apni-dukaan-logo-primary-green-2ebd59-range-and-primary-blue-1a56b0-range-color-palette-clean-white-backgrounds-bold-sans-serif-typography-rounded-card-components-and-a-mobile-first-layout-with-a-sticky-bottom-navigation-or-header-showing-the-logo-on-inner-pages",
+      "featureTitle": "Apply a consistent visual theme across the entire app derived from the APNI DUKAAN logo: primary green (#2EBD59 range) and primary blue (#1A56B0 range) color palette, clean white backgrounds, bold sans-serif typography, rounded card components, and a mobile-first layout with a sticky bottom navigation or header showing the logo on inner pages.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

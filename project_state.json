@@ -1,0 +1,98 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Mobile-friendly React web app called APNI DUKAAN that helps customers find local shops and lets shop owners create digital shop profiles. Features include a welcome screen, customer and seller flows, shop listings, shop detail pages, and a multi-step seller form. The app uses the APNI DUKAAN logo (shopping cart with house shape, tagline 'Har Dukan Online') as main branding.",
+  "architectural_notes": [
+    "React web app, mobile-friendly design",
+    "Branding: APNI DUKAAN logo (cart + house, tagline 'Har Dukan Online')"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- APNI DUKAAN brand logo: shopping cart icon with a green house silhouette rising above it, a blue and green orbital swoosh wrapping around the cart, a 4-point star sparkle accent top-right, bold text 'APNI' in green and 'DUKAAN' in blue below the icon, subtitle 'Har Dukan Online' in green with short horizontal dashes on each side, white background (apni-dukaan-logo.dim_512x512.png)",
+  "existing_features": [
+    {
+      "id": "feature-build-a-welcome-home-screen-that-displays-the-apni-dukaan-logo-from-frontend-public-assets-generated-apni-dukaan-logo-png-prominently-the-tagline-har-dukan-online-and-two-large-call-to-action-buttons-find-a-shop-customer-flow-and-register-your-shop-seller-flow-the-screen-must-be-mobile-first-and-full-viewport",
+      "title": "Build a Welcome / Home screen that displays the APNI DUKAAN logo (from frontend/public/assets/generated/apni-dukaan-logo.png) prominently, the tagline 'Har Dukan Online', and two large call-to-action buttons: 'Find a Shop' (customer flow) and 'Register Your Shop' (seller flow). The screen must be mobile-first and full-viewport.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-shop-listings-page-for-the-customer-flow-it-must-fetch-all-shops-from-the-backend-and-display-them-as-cards-showing-shop-name-category-city-and-phone-number-include-a-search-bar-to-filter-by-shop-name-or-city-and-a-category-filter-dropdown-each-card-must-be-tappable-and-navigate-to-the-shop-detail-page",
+      "title": "Build a Shop Listings page for the customer flow. It must fetch all shops from the backend and display them as cards showing shop name, category, city, and phone number. Include a search bar to filter by shop name or city, and a category filter dropdown. Each card must be tappable and navigate to the shop detail page.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-shop-detail-page-that-displays-the-full-profile-of-a-single-shop-shop-name-owner-name-category-description-address-city-phone-number-tappable-tel-link-whatsapp-number-tappable-wa-me-link-opening-hours-and-shop-image-include-a-back-button-to-return-to-the-listings-page",
+      "title": "Build a Shop Detail page that displays the full profile of a single shop: shop name, owner name, category, description, address, city, phone number (tappable tel: link), WhatsApp number (tappable wa.me link), opening hours, and shop image. Include a back button to return to the listings page.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-multi-step-seller-registration-form-minimum-3-steps-for-shop-owners-to-create-their-digital-shop-profile-step-1-basic-info-owner-name-shop-name-category-selection-step-2-location-contact-address-city-phone-number-whatsapp-number-opening-hours-step-3-description-review-shop-description-review-all-entered-details-on-final-submission-call-the-backend-registershop-function-and-show-a-success-confirmation-screen-with-the-generated-shop-id",
+      "title": "Build a multi-step Seller Registration form (minimum 3 steps) for shop owners to create their digital shop profile. Step 1: Basic Info (owner name, shop name, category selection). Step 2: Location & Contact (address, city, phone number, WhatsApp number, opening hours). Step 3: Description & Review (shop description, review all entered details). On final submission, call the backend registerShop() function and show a success confirmation screen with the generated shop ID.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-consistent-visual-theme-across-the-entire-app-derived-from-the-apni-dukaan-logo-primary-green-2ebd59-range-and-primary-blue-1a56b0-range-color-palette-clean-white-backgrounds-bold-sans-serif-typography-rounded-card-components-and-a-mobile-first-layout-with-a-sticky-bottom-navigation-or-header-showing-the-logo-on-inner-pages",
+      "title": "Apply a consistent visual theme across the entire app derived from the APNI DUKAAN logo: primary green (#2EBD59 range) and primary blue (#1A56B0 range) color palette, clean white backgrounds, bold sans-serif typography, rounded card components, and a mobile-first layout with a sticky bottom navigation or header showing the logo on inner pages.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Welcome screen with APNI DUKAAN logo branding",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Customer flow to find and browse local shops",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Shop listings page with search/filter",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Shop detail page showing shop profile information",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Seller flow with multi-step form to create digital shop profile",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Create a backend actor that stores shop profiles with fields: shopId, ownerName, shopName, category, description, address, city, phoneNumber, whatsappNumber, openingHours, imageUrl, and createdAt timestamp. Expose query functions to list all shops, filter shops by category and city, and get a single shop by ID. Expose an update function to register a new shop.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "APNI DUKAAN",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

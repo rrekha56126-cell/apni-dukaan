@@ -1,0 +1,95 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-27T08:29:17.122Z",
+  "summary": "The diff implements all major requirements: backend actor (REQ-1), welcome screen (REQ-2), shop listings (REQ-3), shop detail (REQ-4), multi-step registration (REQ-5), and visual theme (REQ-6). However, there are a few gaps: the backend's getShop() traps instead of returning null, searchShops(category, city) is missing (only separate category/city queries exist), and registerShop() returns void instead of the shop ID. The frontend generates the shopId client-side and passes it to the backend rather than the backend generating and returning it.",
+  "missing_requirements": [
+    {
+      "id": "REQ-1",
+      "requirement": "getShop(id) returns a single shop or null",
+      "reason": "The backend getShop() function calls Runtime.trap('Shop not found') instead of returning a null/optional value when the shop does not exist.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-1",
+      "requirement": "searchShops(category, city) returns filtered results combining both category and city filters",
+      "reason": "The backend exposes getShopsByCategory and getShopsByCity as separate functions but does not implement a combined searchShops(category, city) query function.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-1",
+      "requirement": "registerShop() creates a new shop entry and returns its ID",
+      "reason": "The backend registerShop() function returns async () (void) and does not return the generated shop ID. The ID is generated client-side in the frontend instead.",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/pages/SellerRegistrationPage.tsx"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "requirement": "Logo image served from frontend/public/assets/generated/apni-dukaan-logo.png",
+      "reason": "The welcome screen references /assets/generated/apni-dukaan-logo.dim_512x512.png rather than apni-dukaan-logo.png as specified in REQ-2. No evidence of the actual image file being added to the required path appears in the diff.",
+      "evidence": [
+        "frontend/src/pages/WelcomePage.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Client-side shop ID generation using timestamp and random string (generateShopId())",
+      "reason": "The spec requires the backend registerShop() to generate and return the shop ID. Instead, the frontend generates the ID and passes it to the backend.",
+      "evidence": [
+        "frontend/src/pages/SellerRegistrationPage.tsx"
+      ]
+    },
+    {
+      "description": "Copy-to-clipboard functionality for the shop ID on the success page",
+      "reason": "The spec only requires showing the shop ID on the success screen; clipboard copy was not requested.",
+      "evidence": [
+        "frontend/src/pages/RegistrationSuccessPage.tsx"
+      ]
+    },
+    {
+      "description": "Stats strip on the welcome screen showing Local Shops, Cities, and Categories icons",
+      "reason": "The welcome screen spec only requires the logo, tagline, and two CTA buttons. The stats strip was not requested.",
+      "evidence": [
+        "frontend/src/pages/WelcomePage.tsx"
+      ]
+    },
+    {
+      "description": "Separate getShopsByCity backend query function",
+      "reason": "The spec defines searchShops(category, city) as a combined filter. A standalone getShopsByCity function was not specified.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    }
+  ],
+  "confidence": 0.82,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/Layout.tsx",
+    "frontend/src/components/ShopCard.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useMultiStepForm.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/RegistrationSuccessPage.tsx",
+    "frontend/src/pages/SellerRegistrationPage.tsx",
+    "frontend/src/pages/ShopDetailPage.tsx",
+    "frontend/src/pages/ShopListingsPage.tsx",
+    "frontend/src/pages/WelcomePage.tsx",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

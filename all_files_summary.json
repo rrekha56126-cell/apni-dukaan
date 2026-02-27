@@ -1,0 +1,23 @@
+{
+  "backend/main.mo": "Motoko actor defining a shop registry with CRUD operations (registerShop, getAllShops, getShopsByCategory, getShopsByCity, getShop), input validation, and in-memory Map storage.",
+  "feature_evidence.json": "Feature evidence report mapping implemented features (welcome screen, shop listings, shop detail, seller registration) to their source files, components, and test IDs.",
+  "frontend-file-summaries.txt": "JSON document containing one-line summaries of each frontend source file, serving as a quick reference for the project's frontend structure.",
+  "frontend/index.css": "Base Tailwind CSS file defining OKLCH-based CSS custom properties for light and dark theme color tokens used throughout the app.",
+  "frontend/index.html": "HTML entry point for the React app, setting the page title to 'APNI DUKAAN' and mounting the app at the #root div.",
+  "frontend/src/App.tsx": "Defines the TanStack Router route tree with routes for welcome, shop listings, shop detail, registration, and success pages, wrapping inner routes in a shared Layout.",
+  "frontend/src/components/Layout.tsx": "Shared page layout with a sticky header containing the logo and register link, a main content outlet, and a branded footer with caffeine.ai attribution.",
+  "frontend/src/components/ShopCard.tsx": "Reusable card component that displays a shop's image/placeholder, name, category badge, city, and phone number, linking to the shop detail page.",
+  "frontend/src/hooks/useActor.ts": "React Query hook that creates and caches an authenticated or anonymous ICP backend actor based on the current Internet Identity, invalidating dependent queries on identity change.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Provides a React context and hook for Internet Identity authentication, including login, logout, and identity persistence via AuthClient with configurable options.",
+  "frontend/src/hooks/useMultiStepForm.ts": "Custom hook managing multi-step shop registration form state, including step navigation and form data updates for all shop fields.",
+  "frontend/src/hooks/useQueries.ts": "Defines React Query hooks for fetching all shops, a single shop, shops by category, and registering a new shop via the backend actor.",
+  "frontend/src/index.css": "Global CSS file that imports fonts, sets up Tailwind directives, and defines light/dark theme CSS custom properties along with brand utility classes.",
+  "frontend/src/main.tsx": "Application entry point that renders the React app wrapped with QueryClientProvider and InternetIdentityProvider.",
+  "frontend/src/pages/RegistrationSuccessPage.tsx": "Success page displayed after shop registration, showing the shop ID with a copy button and navigation options to browse shops or return home.",
+  "frontend/src/pages/SellerRegistrationPage.tsx": "Multi-step seller registration form page with per-step validation that collects shop info, location, and details before submitting to the backend.",
+  "frontend/src/pages/ShopDetailPage.tsx": "Shop detail page that fetches and displays a single shop's full information including contact actions (call/WhatsApp), location, hours, and description.",
+  "frontend/src/pages/ShopListingsPage.tsx": "Displays a searchable, filterable list of all shops fetched from the backend, showing shop cards with loading/error/empty states. Supports filtering by shop name/city text search and category dropdown.",
+  "frontend/src/pages/WelcomePage.tsx": "Landing/welcome page showing the APNI DUKAAN logo, tagline, and two CTA buttons ('Find a Shop' and 'Register Your Shop') that navigate to the shops listing and registration pages respectively.",
+  "frontend/tailwind.config.js": "Tailwind CSS configuration extending the default theme with custom brand colors (green/blue), fonts (Poppins, Inter), border radii, box shadows, and animations, using oklch CSS variables for theming.",
+  "project_state.json": "Tracks the overall project state (version 3) for the APNI DUKAAN app, documenting existing features, architectural notes, image requirements, and known issues for build planning."
+}

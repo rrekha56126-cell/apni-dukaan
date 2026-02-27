@@ -1,0 +1,148 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "APNI DUKAAN – Local Shop Discovery App Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-2",
+      "summary": "Build a Welcome / Home screen with APNI DUKAAN logo, tagline, and two CTA buttons for customer and seller flows",
+      "acceptanceCriteria": [
+        "Logo image is displayed on the welcome screen",
+        "Tagline 'Har Dukan Online' is visible below the logo",
+        "'Find a Shop' button navigates to the shop listings page",
+        "'Register Your Shop' button navigates to the seller registration flow",
+        "Screen is responsive and looks correct on mobile viewport widths"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/WelcomePage.tsx",
+          "operation": "create",
+          "description": "Create the Welcome/Home page component that displays the APNI DUKAAN logo from frontend/public/assets/generated/apni-dukaan-logo.dim_512x512.png, the tagline 'Har Dukan Online', and two large call-to-action buttons: 'Find a Shop' (navigating to /shops) and 'Register Your Shop' (navigating to /register). Use mobile-first, full-viewport layout with clean spacing and brand colors."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the WelcomePage component into the application router as the default route (/). Ensure navigation to /shops and /register is supported."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Build a Shop Listings page for customers to browse and filter shops",
+      "acceptanceCriteria": [
+        "All registered shops are listed as cards",
+        "Search bar filters cards by shop name or city in real time",
+        "Category dropdown filters the list by selected category",
+        "Tapping a card navigates to the corresponding shop detail page",
+        "Empty state message shown when no shops match the filter"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ShopListingsPage.tsx",
+          "operation": "create",
+          "description": "Create the Shop Listings page that fetches all shops using the backend getAllShops() method. Display shops as cards showing shop name, category, city, and phone number. Include a search input to filter by shop name or city, and a category dropdown filter. Each card is clickable and navigates to /shop/:shopId. Show an empty state message when no shops match the filter. Use mobile-first responsive layout."
+        },
+        {
+          "path": "frontend/src/components/ShopCard.tsx",
+          "operation": "create",
+          "description": "Create a reusable ShopCard component that displays shop name, category, city, and phone number. The card is tappable and uses React Router Link to navigate to the shop detail page. Apply rounded corners and brand colors consistent with the theme."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Register the /shops route in the application router, rendering the ShopListingsPage component."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Build a Shop Detail page displaying the full profile of a single shop",
+      "acceptanceCriteria": [
+        "All shop profile fields are displayed on the detail page",
+        "Phone number renders as a tappable tel: link",
+        "WhatsApp number renders as a tappable wa.me link",
+        "Back button returns the user to the shop listings page",
+        "Page handles missing optional fields gracefully"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ShopDetailPage.tsx",
+          "operation": "create",
+          "description": "Create the Shop Detail page that fetches a single shop using the backend getShop(shopId) method based on the route parameter. Display shop name, owner name, category, description, address, city, phone number (as a tel: link), WhatsApp number (as a wa.me link), opening hours, and shop image. Include a back button that navigates to /shops. Handle missing optional fields gracefully."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Register the /shop/:shopId route in the application router, rendering the ShopDetailPage component."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Build a multi-step Seller Registration form for shop owners to create their digital shop profile",
+      "acceptanceCriteria": [
+        "Form is split into at least 3 distinct steps with a progress indicator",
+        "User can navigate back to previous steps without losing data",
+        "Each step validates required fields before proceeding",
+        "Step 3 shows a summary of all entered information for review",
+        "On submission, registerShop() is called on the backend",
+        "Success screen displays a confirmation message and the new shop ID"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/SellerRegistrationPage.tsx",
+          "operation": "create",
+          "description": "Create the Seller Registration page with a multi-step form (minimum 3 steps): Step 1 (Basic Info: owner name, shop name, category selection), Step 2 (Location & Contact: address, city, phone number, WhatsApp number, opening hours), Step 3 (Description & Review: shop description and summary of all entered data). Include a progress indicator, back/next navigation, and field validation. On final submission, call the backend registerShop() function and navigate to the success screen."
+        },
+        {
+          "path": "frontend/src/pages/RegistrationSuccessPage.tsx",
+          "operation": "create",
+          "description": "Create the Registration Success page that displays a confirmation message and the newly generated shop ID. Include a button to return to the welcome screen or view the shop listings."
+        },
+        {
+          "path": "frontend/src/hooks/useMultiStepForm.ts",
+          "operation": "create",
+          "description": "Create a custom React hook to manage multi-step form state, including current step index, form data persistence across steps, navigation between steps, and validation logic."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Register the /register route for the SellerRegistrationPage and the /success route for the RegistrationSuccessPage in the application router."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Apply a consistent visual theme across the entire app derived from the APNI DUKAAN logo",
+      "acceptanceCriteria": [
+        "Green and blue brand colors are used consistently for buttons, headings, and accents",
+        "All pages use white or very light backgrounds with clean spacing",
+        "Cards and buttons have rounded corners matching the brand style",
+        "Logo appears in the header or navigation on all inner pages",
+        "App is usable and visually coherent on a 375px wide mobile screen"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Define CSS custom properties for the brand color palette (primary green #2EBD59, primary blue #1A56B0) and apply global styles: white or very light backgrounds, bold sans-serif typography, and mobile-first responsive spacing. Ensure all text and UI elements are readable at 375px viewport width."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend the Tailwind configuration to include brand colors (green: #2EBD59, blue: #1A56B0) as custom theme colors, rounded card border radius, and mobile-first breakpoints. Ensure consistency across all components."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "create",
+          "description": "Create a Layout component that wraps inner pages with a sticky header showing the APNI DUKAAN logo (from frontend/public/assets/generated/apni-dukaan-logo.dim_512x512.png) and optional navigation. Apply consistent padding, background colors, and mobile-first responsive layout."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap all inner page routes (Shop Listings, Shop Detail, Seller Registration) with the Layout component to ensure the logo and consistent branding appear on every page except the Welcome screen."
+        }
+      ]
+    }
+  ]
+}

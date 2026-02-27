@@ -1,0 +1,14 @@
+{
+  "frontend/src/index.css": "Global styles with OKLCH color system using APNI DUKAAN brand colors (green and blue), Poppins/Inter fonts, and utility classes for brand gradients and colors.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with Poppins/Inter font families, brand color tokens, enhanced border radii, and card shadow utilities.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for all backend operations: getAllShops, getShop by ID, getShopsByCategory, and registerShop mutation with cache invalidation.",
+  "frontend/src/App.tsx": "Main app with TanStack Router setup, defining routes for welcome (/), shops (/shops), shop detail (/shop/:shopId), register (/register), and success (/success) pages with a shared Layout wrapper.",
+  "frontend/src/components/Layout.tsx": "Shared layout wrapper with sticky header showing the APNI DUKAAN logo, a register shop link, main content outlet, and branded footer with caffeine.ai attribution.",
+  "frontend/src/pages/WelcomePage.tsx": "Full-viewport welcome screen with the APNI DUKAAN logo, \"Har Dukan Online\" tagline, and two CTA buttons for finding shops and registering a shop.",
+  "frontend/src/components/ShopCard.tsx": "Reusable shop card component displaying shop image/placeholder, name, category badge, city, and phone number with navigation to the shop detail page.",
+  "frontend/src/pages/ShopListingsPage.tsx": "Shop listings page with real-time search by name/city, category dropdown filter, loading skeletons, empty state, and a grid of ShopCard components.",
+  "frontend/src/pages/ShopDetailPage.tsx": "Shop detail page showing full shop profile including image, description, address, opening hours, and tappable phone/WhatsApp contact buttons.",
+  "frontend/src/hooks/useMultiStepForm.ts": "Custom hook managing multi-step form state with form data persistence, step navigation, and first/last step flags.",
+  "frontend/src/pages/SellerRegistrationPage.tsx": "Three-step seller registration form with progress indicator, field validation, step navigation, and backend submission via registerShop mutation.",
+  "frontend/src/pages/RegistrationSuccessPage.tsx": "Registration success page showing confirmation, the new shop ID with copy functionality, next steps guidance, and navigation buttons."
+}

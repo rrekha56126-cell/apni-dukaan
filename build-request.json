@@ -1,0 +1,150 @@
+{
+  "kind": "build_request",
+  "title": "Build APNI DUKAAN – Local Shop Discovery App",
+  "projectName": "Apni Dukaan",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a backend actor that stores shop profiles with fields: shopId, ownerName, shopName, category, description, address, city, phoneNumber, whatsappNumber, openingHours, imageUrl, and createdAt timestamp. Expose query functions to list all shops, filter shops by category and city, and get a single shop by ID. Expose an update function to register a new shop.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "lets shop owners create digital shop profiles",
+          "Shop listings page with search/filter",
+          "Shop detail page showing shop profile information"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend stores shop profile records with all specified fields",
+        "listShops() returns all registered shops",
+        "getShop(id) returns a single shop or null",
+        "searchShops(category, city) returns filtered results",
+        "registerShop() creates a new shop entry and returns its ID"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Build a Welcome / Home screen that displays the APNI DUKAAN logo (from frontend/public/assets/generated/apni-dukaan-logo.png) prominently, the tagline 'Har Dukan Online', and two large call-to-action buttons: 'Find a Shop' (customer flow) and 'Register Your Shop' (seller flow). The screen must be mobile-first and full-viewport.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Welcome screen with APNI DUKAAN logo branding",
+          "Customer flow to find and browse local shops",
+          "Seller flow with multi-step form to create digital shop profile"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Logo image is displayed on the welcome screen",
+        "Tagline 'Har Dukan Online' is visible below the logo",
+        "'Find a Shop' button navigates to the shop listings page",
+        "'Register Your Shop' button navigates to the seller registration flow",
+        "Screen is responsive and looks correct on mobile viewport widths"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Build a Shop Listings page for the customer flow. It must fetch all shops from the backend and display them as cards showing shop name, category, city, and phone number. Include a search bar to filter by shop name or city, and a category filter dropdown. Each card must be tappable and navigate to the shop detail page.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Customer flow to find and browse local shops",
+          "Shop listings page with search/filter"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All registered shops are listed as cards",
+        "Search bar filters cards by shop name or city in real time",
+        "Category dropdown filters the list by selected category",
+        "Tapping a card navigates to the corresponding shop detail page",
+        "Empty state message shown when no shops match the filter"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Build a Shop Detail page that displays the full profile of a single shop: shop name, owner name, category, description, address, city, phone number (tappable tel: link), WhatsApp number (tappable wa.me link), opening hours, and shop image. Include a back button to return to the listings page.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Shop detail page showing shop profile information"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All shop profile fields are displayed on the detail page",
+        "Phone number renders as a tappable tel: link",
+        "WhatsApp number renders as a tappable wa.me link",
+        "Back button returns the user to the shop listings page",
+        "Page handles missing optional fields gracefully"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Build a multi-step Seller Registration form (minimum 3 steps) for shop owners to create their digital shop profile. Step 1: Basic Info (owner name, shop name, category selection). Step 2: Location & Contact (address, city, phone number, WhatsApp number, opening hours). Step 3: Description & Review (shop description, review all entered details). On final submission, call the backend registerShop() function and show a success confirmation screen with the generated shop ID.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Seller flow with multi-step form to create digital shop profile",
+          "multi-step seller form"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Form is split into at least 3 distinct steps with a progress indicator",
+        "User can navigate back to previous steps without losing data",
+        "Each step validates required fields before proceeding",
+        "Step 3 shows a summary of all entered information for review",
+        "On submission, registerShop() is called on the backend",
+        "Success screen displays a confirmation message and the new shop ID"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Apply a consistent visual theme across the entire app derived from the APNI DUKAAN logo: primary green (#2EBD59 range) and primary blue (#1A56B0 range) color palette, clean white backgrounds, bold sans-serif typography, rounded card components, and a mobile-first layout with a sticky bottom navigation or header showing the logo on inner pages.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Green and blue brand colors are used consistently for buttons, headings, and accents",
+        "All pages use white or very light backgrounds with clean spacing",
+        "Cards and buttons have rounded corners matching the brand style",
+        "Logo appears in the header or navigation on all inner pages",
+        "App is usable and visually coherent on a 375px wide mobile screen"
+      ]
+    }
+  ],
+  "constraints": [
+    "All user-facing text must be in English",
+    "App must be mobile-first; all pages must be fully usable on 375px viewport width",
+    "Logo image must be served from frontend/public/assets/generated/ as a static asset"
+  ],
+  "nonGoals": [
+    "User authentication or Internet Identity login",
+    "Payment processing or e-commerce checkout",
+    "Real-time chat between customers and shop owners",
+    "Map or GPS-based location services",
+    "Image upload by sellers (image URL field only)"
+  ],
+  "imageRequirements": {
+    "required": [
+      "APNI DUKAAN brand logo: shopping cart icon with a green house silhouette rising above it, a blue and green orbital swoosh wrapping around the cart, a 4-point star sparkle accent top-right, bold text 'APNI' in green and 'DUKAAN' in blue below the icon, subtitle 'Har Dukan Online' in green with short horizontal dashes on each side, white background (apni-dukaan-logo.dim_512x512.png)"
+    ],
+    "edits": []
+  }
+}
